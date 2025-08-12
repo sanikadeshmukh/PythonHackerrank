@@ -1,0 +1,152 @@
+You are given an integer, . Your task is to print an alphabet rangoli of size . (Rangoli is a form of Indian folk art based on creation of patterns.)
+
+Different sizes of alphabet rangoli are shown below:
+
+#size 3
+
+----c----
+--c-b-c--
+c-b-a-b-c
+--c-b-c--
+----c----
+
+#size 5
+
+--------e--------
+------e-d-e------
+----e-d-c-d-e----
+--e-d-c-b-c-d-e--
+e-d-c-b-a-b-c-d-e
+--e-d-c-b-c-d-e--
+----e-d-c-d-e----
+------e-d-e------
+--------e--------
+
+#size 10
+
+------------------j------------------
+----------------j-i-j----------------
+--------------j-i-h-i-j--------------
+------------j-i-h-g-h-i-j------------
+----------j-i-h-g-f-g-h-i-j----------
+--------j-i-h-g-f-e-f-g-h-i-j--------
+------j-i-h-g-f-e-d-e-f-g-h-i-j------
+----j-i-h-g-f-e-d-c-d-e-f-g-h-i-j----
+--j-i-h-g-f-e-d-c-b-c-d-e-f-g-h-i-j--
+j-i-h-g-f-e-d-c-b-a-b-c-d-e-f-g-h-i-j
+--j-i-h-g-f-e-d-c-b-c-d-e-f-g-h-i-j--
+----j-i-h-g-f-e-d-c-d-e-f-g-h-i-j----
+------j-i-h-g-f-e-d-e-f-g-h-i-j------
+--------j-i-h-g-f-e-f-g-h-i-j--------
+----------j-i-h-g-f-g-h-i-j----------
+------------j-i-h-g-h-i-j------------
+--------------j-i-h-i-j--------------
+----------------j-i-j----------------
+------------------j------------------
+The center of the rangoli has the first alphabet letter a, and the boundary has the  alphabet letter (in alphabetical order).
+
+Function Description
+
+Complete the rangoli function in the editor below.
+
+rangoli has the following parameters:
+
+int size: the size of the rangoli
+Returns
+
+string: a single string made up of each of the lines of the rangoli separated by a newline character (\n)
+Input Format
+
+Only one line of input containing , the size of the rangoli.
+
+Constraints
+
+
+Sample Input
+
+5
+Sample Output
+
+--------e--------
+------e-d-e------
+----e-d-c-d-e----
+--e-d-c-b-c-d-e--
+e-d-c-b-a-b-c-d-e
+--e-d-c-b-c-d-e--
+----e-d-c-d-e----
+------e-d-e------
+--------e--------
+Language
+Pypy 3
+More
+14567891011121314151617182319
+
+import string
+
+def print_rangoli(size):
+    alpha = string.ascii_lowercase
+    width = 4 * size - 3
+    rows = []
+    for i in range(size):
+        # Build letters from current outer letter down to 'a', then back up
+        left = [alpha[size - 1 - j] for j in range(i + 1)]
+        row_letters = left + left[-2::-1]          # mirror without duplicating center
+        row = "-".join(row_letters).center(width, "-")
+        rows.append(row)
+    # Top (including middle) + Bottom (mirror excluding middle)
+    result = rows + rows[-2::-1]
+    print("\n".join(result))
+
+
+if __name__ == '__main__':
+Line: 21 Col: 21
+
+Test against custom input
+Python
+You have earned 20.00 points!
+33/115 challenges solved.
+29%
+Congratulations
+You solved this challenge. Would you like to challenge your friends?Share on FacebookShare on TwitterShare on LinkedIn
+
+Test case 0
+
+Test case 1
+
+Test case 2
+
+Test case 3
+
+Test case 4
+
+Test case 5
+
+Test case 6
+
+Test case 7
+Compiler Message
+Success
+Hidden Test Case
+Unlock this testcase for 5 hackos.
+BlogScoringEnvironmentFAQAbout UsHelpdeskCareersTerms Of ServicePrivacy Policy
+
+import string
+
+def print_rangoli(size):
+    alpha = string.ascii_lowercase
+    width = 4 * size - 3
+    rows = []
+    for i in range(size):
+        # Build letters from current outer letter down to 'a', then back up
+        left = [alpha[size - 1 - j] for j in range(i + 1)]
+        row_letters = left + left[-2::-1]          # mirror without duplicating center
+        row = "-".join(row_letters).center(width, "-")
+        rows.append(row)
+    # Top (including middle) + Bottom (mirror excluding middle)
+    result = rows + rows[-2::-1]
+    print("\n".join(result))
+
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
