@@ -1,0 +1,21 @@
+def minion_game(string):
+    vowels = set('AEIOU')
+    n = len(string)
+    kev = stu = 0
+
+    for i, ch in enumerate(string):
+        if ch in vowels:
+            kev += n - i
+        else:
+            stu += n - i
+
+    if kev > stu:
+        print(f"Kevin {kev}")
+    elif stu > kev:
+        print(f"Stuart {stu}")
+    else:
+        print("Draw")
+
+if __name__ == "__main__":
+    s = input().strip()
+    minion_game(s)
