@@ -1,0 +1,13 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import cmath
+
+# Read the complex number as input
+z = complex(input().strip())
+
+# Get modulus and phase
+modulus = abs(z)         # distance from origin
+phase = cmath.phase(z)   # angle from x-axis
+
+# Print results
+print(modulus)
+print(phase)
