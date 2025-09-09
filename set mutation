@@ -1,0 +1,19 @@
+n = int(input())
+a = set(map(int, input().split()))
+
+other_n = int(input())
+
+for _ in range(other_n):
+    op = input().split()[0]  # read operation name
+    other_set = set(map(int, input().split()))
+    
+    if op == "update":
+        a.update(other_set)
+    elif op == "intersection_update":
+        a.intersection_update(other_set)
+    elif op == "difference_update":
+        a.difference_update(other_set)
+    elif op == "symmetric_difference_update":
+        a.symmetric_difference_update(other_set)
+
+print(sum(a))
