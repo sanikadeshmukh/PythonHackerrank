@@ -1,0 +1,14 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+t = int(input())   # number of test cases
+
+for _ in range(t):
+    # read set A
+    a_size = int(input())
+    A = set(map(int, input().split()))
+    
+    # read set B
+    b_size = int(input())
+    B = set(map(int, input().split()))
+    
+    # check subset
+    print(A.issubset(B))
