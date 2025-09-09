@@ -1,0 +1,10 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+eng = int(input())  
+eng_set = set(map(int, input().split()))
+
+fr = int(input())
+fr_set = set(map(int, input().split()))
+
+print(len(eng_set.intersection(fr_set)))
