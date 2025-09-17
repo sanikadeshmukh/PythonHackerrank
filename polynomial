@@ -1,0 +1,10 @@
+import numpy as np
+
+# Read coefficients
+coeff = list(map(float, input().split()))
+
+# Read x value
+x = float(input())
+
+# Evaluate polynomial
+print(np.polyval(coeff, x))
