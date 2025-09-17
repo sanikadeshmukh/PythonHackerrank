@@ -1,0 +1,15 @@
+import numpy as np
+
+# Read N, M, P
+n, m, p = map(int, input().split())
+
+# Read first array (N rows, P columns)
+array_1 = np.array([list(map(int, input().split())) for _ in range(n)])
+
+# Read second array (M rows, P columns)
+array_2 = np.array([list(map(int, input().split())) for _ in range(m)])
+
+# Concatenate along rows (axis=0)
+result = np.concatenate((array_1, array_2), axis=0)
+
+print(result)
