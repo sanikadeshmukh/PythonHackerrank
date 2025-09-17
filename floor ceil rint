@@ -1,0 +1,12 @@
+import numpy as np
+
+# for HackerRank formatting
+np.set_printoptions(legacy='1.13')
+
+# read input
+A = np.array(input().split(), float)
+
+# operations
+print(np.floor(A))
+print(np.ceil(A))
+print(np.rint(A))
