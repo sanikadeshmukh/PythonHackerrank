@@ -1,0 +1,15 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+
+# Read number of inputs
+n = int(input())
+
+# Define regex pattern
+pattern = r'^[789]\d{9}$'
+
+for _ in range(n):
+    s = input().strip()
+    if re.match(pattern, s):
+        print("YES")
+    else:
+        print("NO")
