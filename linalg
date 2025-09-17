@@ -1,0 +1,13 @@
+import numpy as np
+
+# Read matrix size
+n = int(input())
+
+# Read the matrix
+A = np.array([list(map(float, input().split())) for _ in range(n)])
+
+# Compute determinant
+det_val = np.linalg.det(A)
+
+# Print rounded to 2 decimals
+print(round(det_val, 2))
