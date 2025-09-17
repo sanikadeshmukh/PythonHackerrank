@@ -1,0 +1,21 @@
+from html.parser import HTMLParser
+import sys
+
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print(tag)
+        for name, value in attrs:
+            print(f"-> {name} > {value}")
+
+    def handle_startendtag(self, tag, attrs):
+        # self-closing tags like <param ... /> or <br/>
+        print(tag)
+        for name, value in attrs:
+            print(f"-> {name} > {value}")
+
+n = int(sys.stdin.readline())
+html = "".join(sys.stdin.readline() for _ in range(n))
+
+parser = MyHTMLParser()
+parser.feed(html)
+parser.close()
