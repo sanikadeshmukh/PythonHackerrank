@@ -1,0 +1,10 @@
+import numpy as np
+
+# ensure correct formatting
+np.set_printoptions(legacy='1.13')
+
+# read input
+n, m = map(int, input().split())
+
+# create array with ones on diagonal
+print(np.eye(n, m))
