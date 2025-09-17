@@ -1,0 +1,27 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+
+for _ in range(int(input())):
+    uid = input().strip()
+    
+    # Rule 1 & 2: only alphanumeric, exactly 10 chars
+    if not re.match(r'^[A-Za-z0-9]{10}$', uid):
+        print("Invalid")
+        continue
+    
+    # Rule 3: at least 2 uppercase
+    if len(re.findall(r'[A-Z]', uid)) < 2:
+        print("Invalid")
+        continue
+    
+    # Rule 4: at least 3 digits
+    if len(re.findall(r'\d', uid)) < 3:
+        print("Invalid")
+        continue
+    
+    # Rule 5: no repetition
+    if len(set(uid)) != 10:
+        print("Invalid")
+        continue
+    
+    print("Valid")
